@@ -89,7 +89,7 @@ Three things I didn't expect:
 
 3. Chrome keeps a tab flagged as "making sound" for two seconds after it stops. So "did the pause work?" needs a 3.5-second re-check. Tiny detail, took longer than the UI.
 
-Built with Claude Code as cofounder, the whole thing is ~900 lines of plain JavaScript, no dependencies, no build step, no tracking.
+Built with Claude Code as cofounder, the whole thing is ~1,200 lines of plain JavaScript, no dependencies, no build step, no tracking.
 
 Free, open source, link in the first comment. README is written for people who have never seen GitHub.
 

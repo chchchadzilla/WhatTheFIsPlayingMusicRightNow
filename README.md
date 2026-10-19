@@ -210,7 +210,7 @@ A Chrome extension lives inside Chrome. That means:
 
 ## Privacy
 
-- **Nothing leaves your computer.** There is no server, no analytics, no account, no network requests at all. You can read every line: the whole extension is about 900 lines of plain JavaScript with zero dependencies.
+- **Nothing leaves your computer.** There is no server, no analytics, no account, no network requests at all. You can read every line: the whole extension is about 1,200 lines of plain, commented JavaScript with zero dependencies.
 - **Nothing is recorded.** The microphone detector only counts whether a page currently holds a live audio track. It never touches the audio.
 - **Settings sync** through your Chrome account like any extension's settings do (a list of domain names and a few checkboxes). Turn off Chrome Sync if you don't want that.
 

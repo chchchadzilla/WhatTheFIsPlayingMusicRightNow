@@ -1,6 +1,6 @@
 # How it works
 
-The whole thing is ~900 lines of dependency-free JavaScript, but a few decisions are non-obvious. This is the "why" file.
+The whole thing is ~1,200 lines of dependency-free, heavily commented JavaScript, but a few decisions are non-obvious. This is the "why" file.
 
 ## The moving parts
 
