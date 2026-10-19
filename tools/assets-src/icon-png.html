@@ -1,0 +1,71 @@
+<!doctype html>
+<!-- Icon rasterizer. Draws the logo SVG onto a canvas at ?size=N (and ?variant=small for 16/32)
+     and writes the PNG as a data: URL into <pre id="png">, which tools/build-assets.mjs reads
+     via `chrome --dump-dom`. Headless screenshots silently come back empty at some window sizes;
+     this path is deterministic. -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <svg id="full" width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff2d55" />
+          <stop offset="1" stop-color="#ff7a45" />
+        </linearGradient>
+        <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.22" />
+          <stop offset="0.6" stop-color="#ffffff" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <rect width="128" height="128" rx="28" fill="url(#g)" />
+      <rect width="128" height="128" rx="28" fill="url(#sheen)" />
+      <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M36 46 A22 22 0 1 1 74 61 C66 68 58 74 58 86" stroke-width="15" />
+        <path d="M96 46 A26 26 0 0 1 96 86" stroke-width="7" opacity="0.95" />
+        <path d="M104 38 A36 36 0 0 1 104 94" stroke-width="7" opacity="0.7" />
+      </g>
+      <circle cx="58" cy="108" r="9" fill="#ffffff" />
+    </svg>
+
+    <svg id="small" width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff2d55" />
+          <stop offset="1" stop-color="#ff7a45" />
+        </linearGradient>
+      </defs>
+      <rect width="128" height="128" rx="24" fill="url(#g2)" />
+      <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="translate(-6 0) scale(1.14)">
+          <path d="M36 46 A22 22 0 1 1 74 61 C66 68 58 74 58 86" stroke-width="17" />
+        </g>
+        <path d="M104 44 A26 26 0 0 1 104 84" stroke-width="10" />
+      </g>
+      <circle cx="60" cy="109" r="11" fill="#ffffff" />
+    </svg>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const size = Number(params.get('size')) || 128;
+      const variant = params.get('variant') === 'small' ? 'small' : 'full';
+      const svg = document.getElementById(variant);
+      document.getElementById(variant === 'full' ? 'small' : 'full').remove();
+
+      const xml = new XMLSerializer().serializeToString(svg);
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        canvas.getContext('2d').drawImage(img, 0, 0, size, size);
+        const out = document.createElement('pre');
+        out.id = 'png';
+        out.textContent = canvas.toDataURL('image/png');
+        document.body.append(out);
+      };
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
+    </script>
+  </body>
+</html>

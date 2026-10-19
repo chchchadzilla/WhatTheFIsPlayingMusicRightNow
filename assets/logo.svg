@@ -1,0 +1,20 @@
+<svg viewBox="0 0 128 128" width="128" height="128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="WhatTheF*#%IsPlayingMusicRightNow logo: a question mark with sound waves">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff2d55"/>
+      <stop offset="1" stop-color="#ff7a45"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#g)"/>
+  <rect width="128" height="128" rx="28" fill="url(#sheen)"/>
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M36 46 A22 22 0 1 1 74 61 C66 68 58 74 58 86" stroke-width="15"/>
+    <path d="M96 46 A26 26 0 0 1 96 86" stroke-width="7" opacity="0.95"/>
+    <path d="M104 38 A36 36 0 0 1 104 94" stroke-width="7" opacity="0.7"/>
+  </g>
+  <circle cx="58" cy="108" r="9" fill="#ffffff"/>
+</svg>

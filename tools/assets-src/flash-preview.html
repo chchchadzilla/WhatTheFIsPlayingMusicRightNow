@@ -1,0 +1,144 @@
+<!doctype html>
+<!-- A fake "noisy" page with the real flash overlay applied, for the README.
+     Imports the actual flashPage() from src/injected.js so the screenshot is honest. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>lofi hip hop radio 📚 beats to relax/study to</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 700px;
+        overflow: hidden;
+        background: #0f0f0f;
+        color: #f1f1f1;
+        font-family: Roboto, "Segoe UI", system-ui, sans-serif;
+      }
+      .topbar {
+        height: 56px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 0 24px;
+        border-bottom: 1px solid #272727;
+      }
+      .topbar .brand {
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: -0.5px;
+      }
+      .topbar .search {
+        flex: 1;
+        max-width: 520px;
+        height: 36px;
+        border-radius: 18px;
+        background: #121212;
+        border: 1px solid #303030;
+        margin-left: 60px;
+      }
+      .wrap {
+        display: grid;
+        grid-template-columns: 760px 1fr;
+        gap: 24px;
+        padding: 24px;
+      }
+      .player {
+        height: 428px;
+        border-radius: 12px;
+        background:
+          radial-gradient(circle at 30% 30%, #3b2a5c, transparent 55%),
+          radial-gradient(circle at 70% 70%, #1f3b4d, transparent 55%),
+          #16181f;
+        position: relative;
+      }
+      .player .play {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 92px;
+        height: 64px;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.6);
+        display: grid;
+        place-items: center;
+        font-size: 30px;
+      }
+      .player .bar {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 14px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 2px;
+      }
+      .player .bar i {
+        display: block;
+        width: 38%;
+        height: 100%;
+        background: #ff0033;
+        border-radius: 2px;
+      }
+      h1 {
+        font-size: 20px;
+        margin: 14px 0 6px;
+      }
+      .meta {
+        color: #aaa;
+        font-size: 14px;
+      }
+      .side .v {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .side .v i {
+        width: 168px;
+        height: 94px;
+        border-radius: 8px;
+        background: #22252e;
+        flex: none;
+      }
+      .side .v b {
+        display: block;
+        width: 180px;
+        height: 12px;
+        background: #2e323d;
+        border-radius: 6px;
+        margin: 6px 0;
+      }
+      .side .v b.s {
+        width: 120px;
+        background: #262a34;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar"><span class="brand">▶ VideoTube</span><div class="search"></div></div>
+    <div class="wrap">
+      <div>
+        <div class="player"><div class="play">▶</div><div class="bar"><i></i></div></div>
+        <h1>lofi hip hop radio 📚 beats to relax/study to</h1>
+        <div class="meta">48,213 watching now · Started streaming 3 years ago</div>
+      </div>
+      <div class="side">
+        <div class="v"><i></i><div><b></b><b class="s"></b></div></div>
+        <div class="v"><i></i><div><b></b><b class="s"></b></div></div>
+        <div class="v"><i></i><div><b></b><b class="s"></b></div></div>
+        <div class="v"><i></i><div><b></b><b class="s"></b></div></div>
+      </div>
+    </div>
+    <script type="module">
+      import { flashPage } from '../../src/injected.js';
+      flashPage({ seconds: 600, flashPage: true, flashTitle: false, windowNumber: 7, windowCount: 12 });
+      // Freeze the pulse at full strength so the screenshot is deterministic.
+      for (const a of document.getElementById('wtf-is-playing-frame').getAnimations()) {
+        a.pause();
+        a.currentTime = 0;
+      }
+    </script>
+  </body>
+</html>

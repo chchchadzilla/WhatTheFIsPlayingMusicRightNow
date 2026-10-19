@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings — WhatTheF*#%IsPlayingMusicRightNow</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="head">
+        <img src="../../icons/icon-128.png" width="56" height="56" alt="" />
+        <div>
+          <h1>WhatTheF*#%IsPlayingMusicRightNow</h1>
+          <p class="tag">Settings. The defaults are sensible — you probably don't need to touch anything.</p>
+        </div>
+      </header>
+
+      <section id="welcome" class="card welcome hidden">
+        <h2>🎉 Installed. Here's the 20-second tour.</h2>
+        <ol>
+          <li>
+            <strong>Pin it.</strong> Click the puzzle-piece 🧩 icon at the top-right of Chrome, then the pin 📌 next to
+            <em>WhatTheF*#%IsPlayingMusicRightNow</em>. Now the button is always visible.
+          </li>
+          <li>
+            <strong>Watch the badge.</strong> When any tab in any window makes noise, a red number appears on the icon.
+            Green means only calls are making sound.
+          </li>
+          <li>
+            <strong>Click the icon.</strong> See what's playing, hit <em>👀 Show me</em> to jump to it, or smash
+            <em>PAUSE EVERYTHING</em>.
+          </li>
+          <li>
+            <strong>Keyboard:</strong> <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> pauses everything from anywhere.
+            <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> finds the noise.
+            <button class="link" id="btn-shortcuts" type="button">Change these</button>
+          </li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>🛡 Protected sites (calls &amp; meetings)</h2>
+        <p>
+          Tabs on these sites are <strong>never</strong> paused or muted, so PAUSE EVERYTHING can't hang up on a
+          human. One site per line. Subdomains are included automatically (<code>zoom.us</code> also covers
+          <code>us05web.zoom.us</code>).
+        </p>
+        <textarea id="protected-sites" rows="14" spellcheck="false" placeholder="teams.microsoft.com"></textarea>
+        <div class="row-actions">
+          <button id="btn-restore" class="btn" type="button">Restore the default list</button>
+          <span id="sites-status" class="status"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>🎙 Smart protection</h2>
+        <label class="toggle">
+          <input type="checkbox" id="protectMicTabs" />
+          <span>
+            <strong>Protect any tab that's using my microphone</strong>
+            <small>If a page has your mic open, it's a call — even on a site that isn't in the list above. Recommended.</small>
+          </span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="muteStubbornTabs" />
+          <span>
+            <strong>If a tab won't pause, mute it instead</strong>
+            <small
+              >Some things (browser games, Web Audio apps, PDFs) have no pause button we can press. We'll mute the whole
+              tab and un-mute it when you hit Resume.</small
+            >
+          </span>
+        </label>
+      </section>
+
+      <section class="card">
+        <h2>🖱 When I click the toolbar icon</h2>
+        <label class="toggle">
+          <input type="radio" name="clickBehavior" value="panel" />
+          <span>
+            <strong>Open the panel</strong>
+            <small>See what's playing, jump to it, or pause. (Default)</small>
+          </span>
+        </label>
+        <label class="toggle">
+          <input type="radio" name="clickBehavior" value="pause" />
+          <span>
+            <strong>Instantly PAUSE EVERYTHING</strong>
+            <small
+              >No panel. One click = silence, plus a quiet notification saying what happened.
+              <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> still opens the panel.</small
+            >
+          </span>
+        </label>
+      </section>
+
+      <section class="card">
+        <h2>🚨 The flash</h2>
+        <label class="toggle">
+          <input type="checkbox" id="flashPage" />
+          <span>
+            <strong>Flash a big pink frame on the page</strong>
+            <small>With an "IT'S THIS TAB" banner and a Pause button.</small>
+          </span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="flashTitle" />
+          <span>
+            <strong>Blink the tab's title</strong>
+            <small>So it jumps out of a strip of 800 tabs.</small>
+          </span>
+        </label>
+        <label class="range">
+          <span><strong>Flash for</strong> <output id="flashSecondsOut">6</output> seconds</span>
+          <input type="range" id="flashSeconds" min="2" max="15" step="1" />
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="showBadge" />
+          <span>
+            <strong>Show a count on the toolbar icon</strong>
+            <small>Red = tabs making noise. Green = only calls are making sound.</small>
+          </span>
+        </label>
+      </section>
+
+      <footer class="foot">
+        <span id="save-status" class="status">Changes save automatically.</span>
+        <span class="spacer"></span>
+        <a href="https://github.com/chchchadzilla/WhatTheFIsPlayingMusicRightNow#readme" target="_blank" rel="noopener"
+          >Help &amp; source code</a
+        >
+        <button class="link" id="btn-shortcuts-2" type="button">Keyboard shortcuts</button>
+      </footer>
+    </div>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "whatthefisplayingmusicrightnow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension: find the tab playing music in any window, flash it, pause everything. Calls and mic untouched.",
+  "type": "module",
+  "scripts": {
+    "validate": "node tools/validate.mjs",
+    "assets": "node tools/build-assets.mjs",
+    "test": "node tools/validate.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Chad Keith",
+  "license": "MIT"
+}

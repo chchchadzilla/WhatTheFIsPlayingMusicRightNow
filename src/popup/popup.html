@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WhatTheF*#%IsPlayingMusicRightNow</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="head">
+      <img class="logo" src="../../icons/icon-48.png" alt="" width="36" height="36" />
+      <div class="titles">
+        <h1>What the F*#%</h1>
+        <p>is playing music right now?</p>
+      </div>
+      <button id="btn-settings" class="icon-btn" title="Settings" aria-label="Settings">⚙️</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <button id="btn-pause-all" class="pause-all" type="button">
+          <span class="pause-glyph" aria-hidden="true">⏸</span>
+          <span class="pause-text">PAUSE EVERYTHING</span>
+          <span id="pause-sub" class="pause-sub">Music &amp; video in every window. Calls stay untouched.</span>
+        </button>
+        <div id="after-pause" class="after-pause hidden">
+          <span id="after-pause-text"></span>
+          <button id="btn-resume" class="link-btn" type="button">↩ Resume what I paused</button>
+        </div>
+      </section>
+
+      <section class="list-section">
+        <h2>
+          Making noise right now
+          <span id="noisy-count" class="count">0</span>
+        </h2>
+        <ul id="noisy-list" class="tab-list"></ul>
+        <div id="empty" class="empty hidden">
+          <div class="empty-emoji" aria-hidden="true">🤫</div>
+          <p class="empty-title">Nothing in Chrome is making noise.</p>
+          <p class="empty-sub">
+            Still hear it? Then it's another browser, a desktop app like Spotify, or a different Chrome
+            profile. This extension can only see the windows of the Chrome profile it's installed in.
+          </p>
+        </div>
+      </section>
+
+      <section class="list-section hidden" id="protected-section">
+        <h2>
+          Calls &amp; meetings
+          <span id="protected-count" class="count calm">0</span>
+          <span class="hint">won't be touched</span>
+        </h2>
+        <ul id="protected-list" class="tab-list"></ul>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span id="window-count" class="muted-text"></span>
+      <span class="spacer"></span>
+      <button id="btn-shortcuts" class="link-btn" type="button" title="Set keyboard shortcuts">⌨ Shortcuts</button>
+      <a
+        class="link-btn"
+        href="https://github.com/chchchadzilla/WhatTheFIsPlayingMusicRightNow#readme"
+        target="_blank"
+        rel="noopener"
+        >Help</a
+      >
+    </footer>
+
+    <template id="row-template">
+      <li class="row">
+        <span class="fav-wrap"><img class="fav" alt="" width="16" height="16" /></span>
+        <div class="meta">
+          <div class="title"></div>
+          <div class="sub"></div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-show" type="button" title="Jump to this tab and flash it">👀 Show me</button>
+          <button class="btn btn-pause" type="button" title="Pause just this tab">⏸</button>
+          <button class="btn btn-shield" type="button">🛡</button>
+        </div>
+      </li>
+    </template>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<!-- GitHub social preview, 1280×640 (GitHub's recommended size). Rendered to assets/social-preview.png. -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 1280px;
+        height: 640px;
+        overflow: hidden;
+        background: #0b0d12;
+        color: #fff;
+        font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+      }
+      .stage {
+        position: relative;
+        width: 1280px;
+        height: 640px;
+        overflow: hidden;
+      }
+      .glow {
+        position: absolute;
+        border-radius: 50%;
+      }
+      .glow.pink {
+        left: -300px;
+        top: -360px;
+        width: 1000px;
+        height: 1000px;
+        background: radial-gradient(circle, rgba(255, 45, 85, 0.4) 0%, rgba(255, 45, 85, 0) 62%);
+      }
+      .glow.orange {
+        right: -340px;
+        bottom: -420px;
+        width: 1000px;
+        height: 1000px;
+        background: radial-gradient(circle, rgba(255, 122, 69, 0.32) 0%, rgba(255, 122, 69, 0) 62%);
+      }
+      .windows {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 26px 0;
+        opacity: 0.55;
+      }
+      .row {
+        display: flex;
+        gap: 4px;
+        padding: 0 10px;
+      }
+      .tab {
+        flex: none;
+        width: 84px;
+        height: 26px;
+        border-radius: 8px;
+        background: #171c2a;
+        border: 1px solid #262c3d;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0 9px;
+        font-size: 10px;
+        color: #6f788d;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .tab i {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 3px;
+        background: #2b3246;
+        flex: none;
+      }
+      .tab.hot {
+        background: #ff2d55;
+        color: #fff;
+        border-color: #ff2d55;
+        font-weight: 800;
+        width: 120px;
+        box-shadow:
+          0 0 0 4px rgba(255, 45, 85, 0.35),
+          0 0 50px rgba(255, 45, 85, 0.9);
+      }
+      .tab.hot i {
+        background: #fff;
+      }
+      .center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .logo {
+        width: 150px;
+        height: 150px;
+        filter: drop-shadow(0 24px 50px rgba(255, 45, 85, 0.5));
+        margin-bottom: 18px;
+      }
+      h1 {
+        margin: 0;
+        font-family: "Segoe UI Black", "Arial Black", "Segoe UI", sans-serif;
+        font-weight: 900;
+        font-size: 92px;
+        line-height: 0.95;
+        letter-spacing: -2px;
+        text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+      }
+      h1 .f {
+        background: linear-gradient(90deg, #ff2d55, #ff7a45);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      h2 {
+        margin: 8px 0 0;
+        font-family: "Segoe UI Black", "Arial Black", "Segoe UI", sans-serif;
+        font-weight: 900;
+        font-size: 40px;
+        line-height: 1;
+        text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+      }
+      .tagline {
+        margin-top: 20px;
+        font-size: 24px;
+        color: #d2d7e4;
+        font-weight: 600;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+      }
+      .tagline .safe {
+        color: #37e0a9;
+      }
+      .pill {
+        margin-top: 22px;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 2.5px;
+        padding: 7px 16px;
+        border-radius: 999px;
+        background: rgba(11, 13, 18, 0.7);
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="glow pink"></div>
+      <div class="glow orange"></div>
+
+      <div class="windows" id="windows"></div>
+
+      <div class="center">
+        <svg class="logo" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff2d55" />
+              <stop offset="1" stop-color="#ff7a45" />
+            </linearGradient>
+            <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.22" />
+              <stop offset="0.6" stop-color="#ffffff" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <rect width="128" height="128" rx="28" fill="url(#g)" />
+          <rect width="128" height="128" rx="28" fill="url(#sheen)" />
+          <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M36 46 A22 22 0 1 1 74 61 C66 68 58 74 58 86" stroke-width="15" />
+            <path d="M96 46 A26 26 0 0 1 96 86" stroke-width="7" opacity="0.95" />
+            <path d="M104 38 A36 36 0 0 1 104 94" stroke-width="7" opacity="0.7" />
+          </g>
+          <circle cx="58" cy="108" r="9" fill="#ffffff" />
+        </svg>
+        <h1>WHAT THE <span class="f">F*#%</span></h1>
+        <h2>IS PLAYING MUSIC RIGHT NOW</h2>
+        <div class="tagline">
+          Find the noisy tab in any window. Flash it. Pause everything.
+          <span class="safe">Calls stay safe.</span>
+        </div>
+        <div class="pill">FREE · OPEN SOURCE · CHROME EXTENSION</div>
+      </div>
+    </div>
+
+    <script>
+      // 12 "windows" worth of tabs in the background, one of them screaming.
+      const names = ['Inbox (412)', 'Q3 numbers', 'docs', 'jira-4821', 'New Tab', 'wiki', 'recipe', 'pricing',
+        'stack overflow', 'calendar', 'figma', 'github', 'sheets', 'notion', 'New Tab', 'amazon', 'maps', 'slack'];
+      const host = document.getElementById('windows');
+      let k = 0;
+      for (let r = 0; r < 12; r++) {
+        const row = document.createElement('div');
+        row.className = 'row';
+        for (let c = 0; c < 15; c++) {
+          const t = document.createElement('div');
+          t.className = 'tab' + (r === 7 && c === 9 ? ' hot' : '');
+          const i = document.createElement('i');
+          t.append(i, document.createTextNode(t.classList.contains('hot') ? '🔊 THIS ONE' : names[(k++) % names.length]));
+          row.append(t);
+        }
+        host.append(row);
+      }
+    </script>
+  </body>
+</html>

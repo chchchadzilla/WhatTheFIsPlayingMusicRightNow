@@ -1,0 +1,92 @@
+<!doctype html>
+<!-- A static mock of the popup with sample data, for the README screenshot.
+     Uses the real popup.css so it looks exactly like the real thing. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../src/popup/popup.css" />
+    <style>
+      body {
+        width: 460px;
+      }
+      .fav-wrap {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="head">
+      <img class="logo" src="../../icons/icon-48.png" alt="" width="36" height="36" />
+      <div class="titles">
+        <h1>What the F*#%</h1>
+        <p>is playing music right now?</p>
+      </div>
+      <button class="icon-btn" title="Settings">⚙️</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <button class="pause-all" type="button">
+          <span class="pause-glyph">⏸</span>
+          <span class="pause-text">PAUSE EVERYTHING</span>
+          <span class="pause-sub">2 tabs across 12 windows. Calls stay untouched.</span>
+        </button>
+      </section>
+
+      <section class="list-section">
+        <h2>Making noise right now <span class="count">2</span></h2>
+        <ul class="tab-list">
+          <li class="row">
+            <span class="fav-wrap">▶️</span>
+            <div class="meta">
+              <div class="title">lofi hip hop radio 📚 beats to relax/study to</div>
+              <div class="sub">youtube.com · window 7 of 12</div>
+            </div>
+            <div class="actions">
+              <button class="btn btn-show">👀 Show me</button>
+              <button class="btn btn-pause">⏸</button>
+              <button class="btn btn-shield">🛡</button>
+            </div>
+          </li>
+          <li class="row">
+            <span class="fav-wrap">🎵</span>
+            <div class="meta">
+              <div class="title">Daily Mix 1 · Spotify</div>
+              <div class="sub">open.spotify.com · window 2 of 12</div>
+            </div>
+            <div class="actions">
+              <button class="btn btn-show">👀 Show me</button>
+              <button class="btn btn-pause">⏸</button>
+              <button class="btn btn-shield">🛡</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="list-section">
+        <h2>Calls &amp; meetings <span class="count calm">1</span> <span class="hint">won't be touched</span></h2>
+        <ul class="tab-list">
+          <li class="row protected">
+            <span class="fav-wrap">🎧</span>
+            <div class="meta">
+              <div class="title">Weekly sync | Microsoft Teams</div>
+              <div class="sub">teams.microsoft.com · this window · 🎙 mic in use · 🛡 protected site</div>
+            </div>
+            <div class="actions">
+              <button class="btn btn-show">👀 Show me</button>
+              <button class="btn btn-pause">⏸</button>
+              <button class="btn btn-shield on">🛡</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span class="muted-text">12 windows scanned</span>
+      <span class="spacer"></span>
+      <button class="link-btn">⌨ Shortcuts</button>
+      <a class="link-btn" href="#">Help</a>
+    </footer>
+  </body>
+</html>

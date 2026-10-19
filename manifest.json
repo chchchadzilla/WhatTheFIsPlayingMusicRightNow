@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "WhatTheF*#%IsPlayingMusicRightNow",
+  "short_name": "WTF Playing",
+  "version": "1.0.0",
+  "description": "Finds the tab playing music in any window, flashes it, and pauses everything with one button. Never touches calls or your mic.",
+  "minimum_chrome_version": "116",
+  "homepage_url": "https://github.com/chchchadzilla/WhatTheFIsPlayingMusicRightNow",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "What the F*#% is playing music right now?",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "permissions": ["tabs", "scripting", "storage", "notifications"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/mic-sentinel.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true,
+      "world": "MAIN"
+    }
+  ],
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "pause-everything": {
+      "suggested_key": { "default": "Alt+Shift+P" },
+      "description": "PAUSE EVERYTHING (music + video in every window; calls are left alone)"
+    },
+    "find-the-noise": {
+      "suggested_key": { "default": "Alt+Shift+F" },
+      "description": "Find the tab making noise, jump to it and flash it"
+    },
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+M" },
+      "description": "Open the panel"
+    }
+  }
+}

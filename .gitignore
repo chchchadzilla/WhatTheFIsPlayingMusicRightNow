@@ -1,0 +1,21 @@
+# Build output
+dist/
+*.zip
+*.crx
+*.pem
+
+# Dependencies (there are none, but just in case someone adds some)
+node_modules/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Local tool state
+.claude/
