@@ -17,8 +17,10 @@ git clone https://github.com/chchchadzilla/WhatTheFIsPlayingMusicRightNow.git
 Then `chrome://extensions` → Developer mode → Load unpacked → pick the folder. After every edit, click ↻ on the extension's card. The service worker's console is behind the **service worker** link on that card; the popup's console is right-click → Inspect on the open popup.
 
 ```bash
-node tools/validate.mjs     # manifest, icons, syntax, CSP sanity
+npm test     # manifest/icon/syntax checks + the service-worker behaviour tests (no install step)
 ```
+
+The behaviour tests in `tools/test-background.mjs` run the real `background.js` against a fake `chrome` API. If you change how pausing, protecting or resuming works, add or adjust a case there.
 
 ## Making changes
 
@@ -39,7 +41,7 @@ Please run through this in a clean Chrome profile before opening a PR:
 - [ ] Resume brings back what was paused and un-mutes what was muted
 - [ ] A tab with only Web Audio (e.g. an online synth) gets muted, not ignored
 - [ ] Keyboard shortcuts work from a tab in another window
-- [ ] `node tools/validate.mjs` passes
+- [ ] `npm test` passes
 
 ## Reporting bugs
 

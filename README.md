@@ -303,12 +303,13 @@ icons/                        Toolbar icons (generated)
 assets/                       Banner, social preview, README images (generated)
 tools/build-assets.mjs        Re-renders every image from HTML/SVG using your installed Chrome
 tools/validate.mjs            Zero-dependency sanity checks (manifest, icons, JS syntax)
+tools/test-background.mjs     Runs the real service worker against a fake Chrome API (no browser needed)
 tools/package.ps1 / .sh       Zips the extension for the Chrome Web Store
 docs/HOW_IT_WORKS.md          The interesting parts: audible flags, the stubborn-tab check, mic detection
 ```
 
 ```bash
-node tools/validate.mjs       # run the checks
+npm test                      # validate + behaviour tests (needs Node 18+, nothing to install)
 ```
 ```bash
 node tools/build-assets.mjs   # regenerate icons + images (needs Chrome installed)

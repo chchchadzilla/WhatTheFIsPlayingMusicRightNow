@@ -68,10 +68,12 @@ export const DEFAULT_SETTINGS = {
   showBadge: true,
 };
 
-/** "https://www.music.youtube.com/watch?v=x" -> "music.youtube.com" */
+/** "https://www.music.youtube.com/watch?v=x" -> "music.youtube.com". Non-web URLs (chrome://, file://) -> "". */
 export function hostnameOf(url) {
   try {
-    return new URL(url).hostname.replace(/^www\./i, '').toLowerCase();
+    const u = new URL(url);
+    if (u.protocol !== 'http:' && u.protocol !== 'https:') return '';
+    return u.hostname.replace(/^www\./i, '').toLowerCase();
   } catch {
     return '';
   }

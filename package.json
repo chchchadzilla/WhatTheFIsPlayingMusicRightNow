@@ -7,7 +7,7 @@
   "scripts": {
     "validate": "node tools/validate.mjs",
     "assets": "node tools/build-assets.mjs",
-    "test": "node tools/validate.mjs"
+    "test": "node tools/validate.mjs && node tools/test-background.mjs"
   },
   "engines": {
     "node": ">=18"
